@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: auto; /* Required for Lenis */
+  }
+
+  body {
+    @apply transition-colors duration-300 antialiased font-sans overflow-x-hidden;
+    background-color: #09090B; /* Dark theme default background */
+    color: #FAFAFA; /* Dark theme default primary text */
+  }
+
+  /* When light mode is active */
+  html.light body {
+    background-color: #F8F9FB; /* Light theme background */
+    color: #111827; /* Light theme primary text */
+  }
+}
+
+/* Webkit scrollbar customizations */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Custom cursor following cursor circle (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #3B82F6;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    will-change: transform;
+  }
+
+  .custom-cursor-ring {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(59, 130, 246, 0.4);
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+  }
+}
+
+/* Helper styles for premium borders and items */
+.border-subtle {
+  border: 0.5px solid rgba(255, 255, 255, 0.07);
+}
+
+html.light .border-subtle {
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+
+.border-subtle-hover:hover {
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+html.light .border-subtle-hover:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+/* Typography styles based on spec */
+.hero-name {
+  font-size: clamp(4rem, 8vw, 6rem); /* 64px to 96px */
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.section-title {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.body-text {
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.label-text {
+  font-size: 0.6875rem; /* 11px */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  80% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+.animate-scroll-line {
+  animation: scroll-line 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Perspective utility */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
