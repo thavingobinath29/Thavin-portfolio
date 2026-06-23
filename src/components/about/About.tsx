@@ -75,7 +75,7 @@ export default function About() {
                   B.Tech Artificial Intelligence & Data Science
                 </h3>
                 <span className="px-2.5 py-0.5 rounded-full text-[9px] font-semibold bg-[#2563EB]/10 dark:bg-[#3B82F6]/10 text-[#2563EB] dark:text-[#3B82F6] uppercase tracking-wide">
-                  CGPA: 8.5+
+                  CGPA: 7.8+
                 </span>
               </div>
               <p className="text-[12px] text-[#6B7280] dark:text-[#A1A1AA]">
